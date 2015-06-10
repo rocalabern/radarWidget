@@ -1,9 +1,8 @@
-htmlwidgets::scaffoldWidget("radarWidget")
-devtools::install()
+# htmlwidgets::scaffoldWidget("radarWidget")
+# devtools::install()
 
-
-
-radarWidget("Jordi esta escoltant")
+library(radarWidget)
+radarWidget("Test")
 
 
 library(RJSONIO)
@@ -12,3 +11,4 @@ l <- list()
 l$A <- df
 l$B <- c(LETTERS[1:10])
 cat(toJSON(l))
+toJSON(c(1,2))
