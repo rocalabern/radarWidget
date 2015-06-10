@@ -1,0 +1,9 @@
+Package: radarWidget
+Type: Package
+Title: HTMLwidget for plotting radar plots.
+Version: 0.1.0
+Date: 2015-02-13
+Author: Roc Alabern, Jose Vicente Moyano
+Maintainer: Roc Alabern <roc.alabern@gmail.com>
+Description: HTMLwidget for plotting graphs in a sankey style.
+License: GPLv2
