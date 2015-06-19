@@ -2,12 +2,15 @@
 % Please edit documentation in R/radarWidget.R
 \name{radarWidget}
 \alias{radarWidget}
-\title{<Add Title>}
+\title{radarWidget}
 \usage{
-radarWidget(df, legendCol = 1, firstColData = 2, showLegend = TRUE,
-  legend.title = NULL, width = NULL, height = NULL)
+radarWidget(df, legendCol = 1, firstColData = ifelse(is.null(legendCol), 1,
+  2), legend.title = ifelse(is.null(legendCol), "Legend",
+  colnames(df)[legendCol]), legend.text = df[, legendCol],
+  showLegend = ifelse(is.null(legendCol), FALSE, TRUE),
+  showTitle = showLegend, width = NULL, height = NULL)
 }
 \description{
-<Add Description>
+radarWidget
 }
 

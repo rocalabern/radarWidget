@@ -1,31 +1,24 @@
-#' <Add Title>
-#'
-#' <Add Description>
-#'
+#' @title radarWidget
 #' @import htmlwidgets
-#'
 #' @export
 radarWidget <- function(
   df,
   legendCol = 1,
-  firstColData = 2,
-  showLegend = TRUE,
-  legend.title = NULL,
+  firstColData = ifelse(is.null(legendCol),1, 2),
+  legend.title = ifelse(is.null(legendCol), "Legend", colnames(df)[legendCol]),
+  legend.text = df[, legendCol],
+  showLegend = ifelse(is.null(legendCol), FALSE, TRUE),
+  showTitle = showLegend,
   width = NULL, height = NULL) {
 
   if (is.null(legend.title)) legend.title = ""
-
-  if (is.null(legend.title)) showTitle = TRUE
-  else showTitle = FALSE
-
-  if (showLegend) legend.text = df[, legendCol]
-  else legend.text = "NULL"
+  if (is.null(legend.text) || is.null(legendCol) || !showLegend) legend.text = ""
 
   o = list()
   for (i in 1:nrow(df)) {
     oT = list()
     for (k in firstColData:ncol(df)) {
-      oT[[1+k-firstColData]] = list(axis=colnames(df)[k],value=df[i,k])
+      oT[[1+k-firstColData]] = list(axis=colnames(df)[k],value=df[i,k], label=legend.text[i])
     }
     o[[i]] = oT
   }
