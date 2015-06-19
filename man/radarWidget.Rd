@@ -4,7 +4,8 @@
 \alias{radarWidget}
 \title{<Add Title>}
 \usage{
-radarWidget(message, width = NULL, height = NULL)
+radarWidget(df, legendCol = 1, firstColData = 2, showLegend = TRUE,
+  legend.title = NULL, width = NULL, height = NULL)
 }
 \description{
 <Add Description>
